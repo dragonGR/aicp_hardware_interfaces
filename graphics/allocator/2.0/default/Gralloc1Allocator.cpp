@@ -25,8 +25,6 @@
 
 #include <log/log.h>
 
-#include <grallocusage/GrallocUsageConversion.h>
-
 namespace android {
 namespace hardware {
 namespace graphics {
@@ -283,22 +281,13 @@ Error Gralloc1Allocator::createDescriptor(
             error = GRALLOC1_ERROR_UNSUPPORTED;
         }
     }
-    uint64_t producerUsage = 0;
-    uint64_t consumerUsage = 0;
-#ifdef EXYNOS4_ENHANCEMENTS
-    android_convertGralloc0To1Usage(static_cast<uint32_t>(info.usage),
-        &producerUsage, &consumerUsage);
-#else
-    producerUsage = toProducerUsage(info.usage);
-    consumerUsage = toConsumerUsage(info.usage);
-#endif
     if (error == GRALLOC1_ERROR_NONE) {
         error = mDispatch.setProducerUsage(mDevice, descriptor,
-                                           producerUsage);
+                                           toProducerUsage(info.usage));
     }
     if (error == GRALLOC1_ERROR_NONE) {
         error = mDispatch.setConsumerUsage(mDevice, descriptor,
-                                           consumerUsage);
+                                           toConsumerUsage(info.usage));
     }
 
     if (error == GRALLOC1_ERROR_NONE) {

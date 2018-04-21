@@ -85,75 +85,16 @@ void convertFromSensorEvent(const sensors_event_t &src, Event *dst) {
         }
 
         case SensorType::ACCELEROMETER:
-        {
-            dst->u.vec3.x = src.acceleration.x;
-            dst->u.vec3.y = src.acceleration.y;
-            dst->u.vec3.z = src.acceleration.z;
-            dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Accelerometer : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
-            break;
-        }
         case SensorType::MAGNETIC_FIELD:
-        {
-            dst->u.vec3.x = src.acceleration.x;
-            dst->u.vec3.y = src.acceleration.y;
-            dst->u.vec3.z = src.acceleration.z;
-            dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Magnetic field : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
-            break;
-        }
         case SensorType::ORIENTATION:
-        {
-            dst->u.vec3.x = src.acceleration.x;
-            dst->u.vec3.y = src.acceleration.y;
-            dst->u.vec3.z = src.acceleration.z;
-            dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Orientation : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
-            break;
-        }
         case SensorType::GYROSCOPE:
-        {
-            dst->u.vec3.x = src.acceleration.x;
-            dst->u.vec3.y = src.acceleration.y;
-            dst->u.vec3.z = src.acceleration.z;
-            dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Gyroscope : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
-            break;
-        }
         case SensorType::GRAVITY:
-        {
-            dst->u.vec3.x = src.acceleration.x;
-            dst->u.vec3.y = src.acceleration.y;
-            dst->u.vec3.z = src.acceleration.z;
-            dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Gravity : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
-            break;
-        }
         case SensorType::LINEAR_ACCELERATION:
         {
             dst->u.vec3.x = src.acceleration.x;
             dst->u.vec3.y = src.acceleration.y;
             dst->u.vec3.z = src.acceleration.z;
             dst->u.vec3.status = (SensorStatus)src.acceleration.status;
-            LOG(ERROR) << "Linear acceleration : "
-                       << " x:" << dst->u.vec3.x
-                       << " y:" << dst->u.vec3.y
-                       << " z:" << dst->u.vec3.z;
             break;
         }
 
@@ -288,77 +229,19 @@ void convertToSensorEvent(const Event &src, sensors_event_t *dst) {
       }
 
       case SensorType::ACCELEROMETER:
-      {
-          dst->acceleration.x = src.u.vec3.x;
-          dst->acceleration.y = src.u.vec3.y;
-          dst->acceleration.z = src.u.vec3.z;
-          dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Accelerometer : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
-          break;
-      }
       case SensorType::MAGNETIC_FIELD:
-      {
-          dst->acceleration.x = src.u.vec3.x;
-          dst->acceleration.y = src.u.vec3.y;
-          dst->acceleration.z = src.u.vec3.z;
-          dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Magnetic field : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
-          break;
-      }
       case SensorType::ORIENTATION:
-      {
-          dst->acceleration.x = src.u.vec3.x;
-          dst->acceleration.y = src.u.vec3.y;
-          dst->acceleration.z = src.u.vec3.z;
-          dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Orientation : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
-          break;
-      }
       case SensorType::GYROSCOPE:
-      {
-          dst->acceleration.x = src.u.vec3.x;
-          dst->acceleration.y = src.u.vec3.y;
-          dst->acceleration.z = src.u.vec3.z;
-          dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Gyroscope : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
-          break;
-      }
       case SensorType::GRAVITY:
-      {
-          dst->acceleration.x = src.u.vec3.x;
-          dst->acceleration.y = src.u.vec3.y;
-          dst->acceleration.z = src.u.vec3.z;
-          dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Gravity : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
-          break;
-      }
       case SensorType::LINEAR_ACCELERATION:
       {
           dst->acceleration.x = src.u.vec3.x;
           dst->acceleration.y = src.u.vec3.y;
           dst->acceleration.z = src.u.vec3.z;
           dst->acceleration.status = (int8_t)src.u.vec3.status;
-          LOG(ERROR) << "Linear aceleration : "
-                     << " x:" << dst->acceleration.x
-                     << " y:" << dst->acceleration.y
-                     << " z:" << dst->acceleration.z;
           break;
       }
+
       case SensorType::ROTATION_VECTOR:
       case SensorType::GAME_ROTATION_VECTOR:
       case SensorType::GEOMAGNETIC_ROTATION_VECTOR:
